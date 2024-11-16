@@ -1,4 +1,5 @@
 import { FaEye, FaStar, FaShareAlt, FaBookmark } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const NewsCard = ({ news }) => {
     return (
@@ -22,14 +23,16 @@ const NewsCard = ({ news }) => {
             </div>
             <div className="p-4">
                 <img
-                    className="w-full h-96"
-                    src={news.thumbnail_url}
-                    alt="News Thumbnail"
+                    src={news.image_url}
+                    alt="Thumbnail"
+                    className="w-full  object-cover rounded-lg mb-4"
                 />
                 <h2 className="text-lg font-bold mt-2">
                     {news.title}
                 </h2>
-                <p className="text-gray-600 text-sm mt-2">{news.details.substring(0, 100)}... <span className="text-red-500 cursor-pointer">Read More</span></p>
+                <p className="text-gray-600 text-sm mt-2">
+                    {news.details.substring(0, 100)}...{" "}
+                    <Link to={`/news/${news._id}`} className="text-red-500 cursor-pointer">Read More</Link></p>
                 <div className='border-t mt-5'></div>
                 <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center text-yellow-500">
